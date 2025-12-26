@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config.pro | Сборка компьютеров</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Мои цвета -->
+    <style>
+        /* Переменные для темной темы */
+        :root {
+            --bg-primary: #2C3E50;
+            --bg-secondary: #3498DB;
+            --bg-accent: #2ECC71;
+            --bg-dark: #1a2530;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --bg-light: #f8fafc;
+            --border-light: #e2e8f0;
+            --card-bg: #2d3748;
+        }
+        
+        /* Светлая тема */
+        .light-theme {
+            --bg-primary: #3498DB;
+            --bg-secondary: #2C3E50;
+            --bg-accent: #27ae60;
+            --bg-dark: #ffffff;
+            --text-light: #1a2530;
+            --text-muted: #4a5568;
+            --bg-light: #ffffff;
+            --border-light: #cbd5e0;
+            --card-bg: #f7fafc;
+        }
+        
+        /* Применение CSS переменных */
+        .bg-primary { background-color: var(--bg-primary); }
+        .text-primary { color: var(--bg-primary); }
+        .bg-secondary { background-color: var(--bg-secondary); }
+        .text-secondary { color: var(--bg-secondary); }
+        .bg-accent { background-color: var(--bg-accent); }
+        .text-accent { color: var(--bg-accent); }
+        .bg-dark { background-color: var(--bg-dark); }
+        .text-light { color: var(--text-light); }
+        .text-muted { color: var(--text-muted); }
+        .bg-light { background-color: var(--bg-light); }
+        .border-light { border-color: var(--border-light); }
+        .card-bg { background-color: var(--card-bg); }
+        
+        /* Анимация для кнопок */
+        .hover-lift:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Стили для выпадающих меню */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-dark);
+            min-width: 240px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        /* Особые стили для светлой темы в выпадающем меню */
+        .light-theme .dropdown-content {
+            background-color: #ffffff !important;
+            border: 1px solid #cbd5e0 !important;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1) !important;
+        }
+        
+        /* Контрастный текст в выпадающем меню */
+        .dropdown-content .menu-text {
+            color: var(--text-light);
+        }
+        
+        .light-theme .dropdown-content .menu-text {
+            color: #1a2530 !important;
+        }
+        
+        .light-theme .dropdown-content .text-muted {
+            color: #4a5568 !important;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Плавная смена темы */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+        
+        /* Адаптация изображений для светлой темы */
+        .light-theme .process-step {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+    
+    <script>
+        // Переключатель темы
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // При загрузке проверяем сохраненную тему
+        window.onload = function() {
+            const saved = localStorage.getItem('theme');
+            const icon = document.getElementById('theme-icon');
+            
+            if (saved === 'light') {
+                document.body.classList.add('light-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        };
+    </script>
+</head>
+<body class="bg-dark">
+
+    <!-- Шапка с профилем и переключением темы -->
+    <header class="bg-primary text-white py-4 shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Логотип и название -->
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-desktop text-2xl text-accent"></i>
+                <div>
+                    <a href="index.html" class="text-xl font-bold hover:text-accent transition">Config.pro</a>
+                    <p class="text-xs text-muted">by Slouwen</p>
+                </div>
+            </div>
+            
+            <!-- Основная навигация -->
+            <nav class="flex items-center space-x-6">
+                <a href="index.html" class="hover:text-accent border-b-2 border-transparent hover:border-accent py-1">Главная</a>
+                <a href="#features" class="hover:text-accent border-b-2 border-transparent hover:border-accent py-1">Функции</a>
+                <a href="#process" class="hover:text-accent border-b-2 border-transparent hover:border-accent py-1">Процесс</a>
+                
+                <!-- Переключение темы -->
+                <button onclick="toggleTheme()" 
+                        class="p-2 rounded-full hover:bg-white/10 transition"
+                        aria-label="Переключить тему">
+                    <i id="theme-icon" class="fas fa-moon text-lg"></i>
+                </button>
+                
+                <!-- Профиль пользователя (выпадающее меню) -->
+                <div class="dropdown">
+                    <button class="flex items-center space-x-2 hover:text-accent transition">
+                        <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div class="text-left hidden md:block">
+                            <p class="font-medium text-light">Иванов А.П.</p>
+                            <p class="text-xs text-muted">Менеджер по продажам</p>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs text-muted"></i>
+                    </button>
+                    
+                    <!-- Выпадающее меню профиля -->
+                    <div class="dropdown-content p-4">
+                        <div class="flex items-center space-x-3 mb-4 pb-4 border-b border-light">
+                            <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold menu-text">Иванов Алексей Петрович</p>
+                                <p class="text-sm text-muted">Менеджер по продажам</p>
+                                <p class="text-xs text-muted mt-1">ID: MP-245</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <a href="pages/dashboard_sales.html" class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">
+                                <i class="fas fa-tachometer-alt mr-3 text-accent"></i>
+                                <span class="menu-text">Личный кабинет</span>
+                            </a>
+                            <a href="#" class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">
+                                <i class="fas fa-cog mr-3 text-gray-500"></i>
+                                <span class="menu-text">Настройки</span>
+                            </a>
+                            <a href="#" class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">
+                                <i class="fas fa-question-circle mr-3 text-blue-500"></i>
+                                <span class="menu-text">Помощь</span>
+                            </a>
+                            <div class="pt-2 mt-2 border-t border-light">
+                                <a href="pages/login.html" class="flex items-center p-2 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-500 rounded transition">
+                                    <i class="fas fa-sign-out-alt mr-3"></i>
+                                    <span class="menu-text">Выйти из системы</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Кнопка входа -->
+                <a href="pages/login.html" class="bg-accent hover:bg-green-500 text-white px-4 py-2 rounded font-bold hover-lift ml-2">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Вход в систему
+                </a>
+            </nav>
+        </div>
+    </header>
+
+<!-- Главный баннер в 2 колонки -->
+<section class="container mx-auto px-4 py-12 md:py-20">
+    <div class="flex flex-col md:flex-row items-center">
+       <!-- Левая колонка - изображение сборки ПК -->
+<div class="bg-gradient-to-br from-gray-900 to-blue-900 rounded-2xl p-8 h-96 flex items-center justify-center process-step">
+    <div class="text-center text-white">
+        <i class="fas fa-desktop text-6xl mb-4 opacity-50"></i>
+        <p class="text-xl font-bold">Описание процессов сборки ПК</p>
+        <p class="text-gray-300 mt-2">Конфигурация #245</p>
+        <div class="mt-6 grid grid-cols-3 gap-3">
+            <div class="bg-green-500 p-2 rounded">CPU i9</div>
+            <div class="bg-red-500 p-2 rounded">RTX 4070</div>
+            <div class="bg-blue-500 p-2 rounded">32GB RAM</div>
+        </div>
+    </div>
+</div>
+        
+        <!-- Правая колонка - текст и кнопка -->
+        <div class="md:w-1/2 md:pl-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-light mb-6 leading-tight"> 
+                Управление сборкой компьютеров
+                <span class="text-accent block">на профессиональном уровне</span>
+            </h1>
+            <p class="text-lg text-muted mb-8"> 
+                Полная автоматизация процесса — от заявки агента до отгрузки готовой системы. 
+                Контроль производства, управление складом и аналитика в одной платформе.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="pages/login.html" 
+                   class="bg-accent hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg text-center hover-lift shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i>Начать работу
+                </a>
+                <a href="#features" 
+                   class="bg-white border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-xl font-bold text-lg text-center hover-lift">
+                    <i class="fas fa-play-circle mr-2"></i>Как это работает
+                </a>
+            </div>
+            
+            <!-- Статистика -->
+            <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-gray-700"> 
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-light">3</p> 
+                    <p class="text-sm text-muted">ролевых интерфейса</p> 
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-light">24/7</p> 
+                    <p class="text-sm text-muted">отслеживание заказов</p> 
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-light">99%</p> 
+                    <p class="text-sm text-muted">точность сборки</p> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Секция "Как это работает" -->
+    <section id="process" class="card-bg py-16">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-light mb-12 text-center">Процесс работы</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Шаг 1 -->
+            <div class="text-center">
+                <div class="relative mb-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg w-full h-48 flex items-center justify-center border border-blue-200 process-step">
+                        <div class="text-center p-6">
+                            <i class="fas fa-file-alt text-5xl text-blue-500 mb-3"></i>
+                            <p class="text-blue-700 font-bold text-lg">Заявка от агента</p>
+                            <p class="text-blue-600 text-sm mt-1">Конфигурация • Скидки • Подтверждение</p>
+                        </div>
+                    </div>
+                    <div class="absolute -top-3 -left-3 bg-accent text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        1
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-light">Заявка от агента</h3>
+                <p class="text-muted">Менеджер создаёт заявку на сборку с выбранной конфигурацией и расчётом скидки.</p>
+            </div>
+            
+            <!-- Шаг 2 -->
+            <div class="text-center">
+                <div class="relative mb-6">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg w-full h-48 flex items-center justify-center border border-green-200 process-step">
+                        <div class="text-center p-6">
+                            <i class="fas fa-desktop text-5xl text-green-500 mb-3"></i>
+                            <p class="text-green-700 font-bold text-lg">Сборка ПК</p>
+                            <p class="text-green-600 text-sm mt-1">Компоненты • Тестирование • Контроль</p>
+                        </div>
+                    </div>
+                    <div class="absolute -top-3 -left-3 bg-accent text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        2
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-light">Сборка и контроль</h3>
+                <p class="text-muted">Мастер производства отслеживает выполнение и меняет статусы в реальном времени.</p>
+            </div>
+            
+            <!-- Шаг 3 -->
+            <div class="text-center">
+                <div class="relative mb-6">
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl shadow-lg w-full h-48 flex items-center justify-center border border-orange-200 process-step">
+                        <div class="text-center p-6">
+                            <i class="fas fa-warehouse text-5xl text-orange-500 mb-3"></i>
+                            <p class="text-orange-700 font-bold text-lg">Складской учёт</p>
+                            <p class="text-orange-600 text-sm mt-1">Остатки • Инвентаризация • Запасы</p>
+                        </div>
+                    </div>
+                    <div class="absolute -top-3 -left-3 bg-accent text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        3
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-light">Учёт комплектующих</h3>
+                <p class="text-muted">Менеджер склада контролирует остатки и проводит инвентаризацию.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Секция функций -->
+    <section id="features" class="card-bg py-16"> 
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-light mb-12 text-center">Ролевые интерфейсы</h2> 
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Менеджер по продажам -->
+                <div class="bg-card rounded-2xl shadow-xl overflow-hidden hover-lift"> 
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+                        <i class="fas fa-chart-line text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Менеджер по продажам</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6 text-light"> 
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Работа с агентами</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Создание заявок</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Расчёт скидок</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Аналитика продаж</li>
+                        </ul>
+                        <a href="pages/dashboard_sales.html" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-lg font-bold">
+                            Демо-доступ →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Мастер производства -->
+                <div class="bg-card rounded-2xl shadow-xl overflow-hidden hover-lift"> 
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
+                        <i class="fas fa-cogs text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Мастер производства</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6 text-light"> 
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>План сборки</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Контроль выполнения</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Изменение статусов</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Отслеживание готовности</li>
+                        </ul>
+                        <a href="pages/dashboard_production.html" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg font-bold">
+                            Демо-доступ →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Менеджер склада -->
+                <div class="bg-card rounded-2xl shadow-xl overflow-hidden hover-lift"> 
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6 text-white">
+                        <i class="fas fa-warehouse text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Менеджер склада</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6 text-light"> 
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Учёт комплектующих</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Инвентаризация</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Контроль остатков</li>
+                            <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Управление запасами</li>
+                        </ul>
+                        <a href="pages/dashboard_warehouse.html" class="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center py-3 rounded-lg font-bold">
+                            Демо-доступ →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кнопка действия -->
+    <section class="bg-gradient-to-r from-blue-800 to-primary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Готовы автоматизировать ваше производство?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto text-white opacity-90">
+                Config.pro — единая система управления сборкой компьютеров с полным контролем 
+                и прозрачностью на каждом этапе.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="pages/login.html" 
+                   class="bg-accent hover:bg-green-500 text-white px-10 py-4 rounded-xl font-bold text-lg hover-lift shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i>Начать бесплатно
+                </a>
+                <a href="#process" 
+                   class="bg-white hover:bg-gray-100 text-primary px-10 py-4 rounded-xl font-bold text-lg hover-lift">
+                    <i class="fas fa-play-circle mr-2"></i>Посмотреть процесс
+                </a>
+            </div>
+            
+            <!-- Дополнительные преимущества -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-blue-700">
+                <div class="text-center">
+                    <i class="fas fa-shield-alt text-2xl text-accent mb-3"></i>
+                    <p class="font-medium">Безопасность данных</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-mobile-alt text-2xl text-accent mb-3"></i>
+                    <p class="font-medium">Доступ с любого устройства</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-headset text-2xl text-accent mb-3"></i>
+                    <p class="font-medium">Техническая поддержка</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Нижняя часть сайта -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <i class="fas fa-desktop text-2xl text-accent"></i>
+                        <div>
+                            <p class="text-xl font-bold">Config.pro</p>
+                            <p class="text-sm text-muted">Система сборки компьютеров</p>
+                        </div>
+                    </div>
+                    <p class="text-muted text-sm">Учебный проект • Специальность 09.02.07</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/Slouwen" target="_blank" class="text-muted hover:text-accent text-xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-muted hover:text-accent text-xl">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                    <a href="index.html" class="text-muted hover:text-accent text-xl">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-light mt-8 pt-6 text-center">
+                <p class="text-muted text-sm">
+                    © 2025 Разработка статического веб-интерфейса с применением принципов семантической разметки и адаптивного дизайна.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

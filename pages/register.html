@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | Config.pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .bg-primary { background-color: #2C3E50; }
+        .text-accent { color: #2ECC71; }
+        .bg-accent { background-color: #2ECC71; }
+        .hover-lift:hover { transform: translateY(-2px); transition: 0.3s; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <!-- Шапка -->
+    <header class="bg-primary text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-desktop text-2xl text-accent"></i>
+                <div>
+                    <a href="/index.html" class="text-xl font-bold hover:text-accent transition">Config.pro</a>
+                    <p class="text-xs text-gray-300">by Slouwen</p>
+                </div>
+            </div>
+            <nav class="flex space-x-6">
+                <a href="/index.html" class="hover:text-accent">← На главную</a>
+                <a href="login.html" class="text-gray-300 hover:text-accent">Уже есть аккаунт? Войти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержание -->
+    <main class="flex-grow flex items-center justify-center py-12">
+        <div class="container mx-auto px-4 max-w-lg">
+            <div class="bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+                
+                <!-- Заголовок -->
+                <div class="bg-gradient-to-r from-primary to-blue-700 p-8 text-center">
+                    <i class="fas fa-user-plus text-5xl mb-4"></i>
+                    <h1 class="text-3xl font-bold">Регистрация</h1>
+                    <p class="text-gray-200 mt-2">Создайте аккаунт для доступа к системе</p>
+                </div>
+                
+                <!-- Форма -->
+                <div class="p-8">
+                    <form class="space-y-6">
+                        <!-- Основные поля -->
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Имя</label>
+                                    <input type="text" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none" placeholder="Иван">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Фамилия</label>
+                                    <input type="text" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none" placeholder="Иванов">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none" placeholder="example@mail.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Пароль</label>
+                                <input type="password" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none" placeholder="••••••••">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-2">Роль в системе</label>
+                                <select class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none">
+                                    <option value="">Выберите роль</option>
+                                    <option value="sales">Менеджер по продажам</option>
+                                    <option value="production">Мастер производства</option>
+                                    <option value="warehouse">Менеджер склада</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Кнопка -->
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-accent hover:bg-green-500 text-white py-4 rounded-xl font-bold text-lg hover-lift">
+                                <i class="fas fa-user-plus mr-2"></i>Зарегистрироваться
+                            </button>
+                        </div>
+                        
+                        <!-- Ссылка на вход -->
+                        <div class="text-center pt-4 border-t border-gray-700">
+                            <p class="text-gray-400">Уже есть аккаунт?</p>
+                            <a href="login.html" class="inline-block mt-2 text-accent hover:text-green-400 font-bold">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Войти в систему
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Нижняя часть сайта -->
+    <footer class="bg-primary text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300 text-sm">
+                © 2025 Config.pro • Учебный проект • Страница регистрации
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

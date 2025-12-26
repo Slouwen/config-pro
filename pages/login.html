@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход | Config.pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .bg-primary { background-color: #2C3E50; }
+        .text-accent { color: #2ECC71; }
+        .bg-accent { background-color: #2ECC71; }
+        .hover-lift:hover { transform: translateY(-2px); transition: 0.3s; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <!-- Шапка -->
+    <header class="bg-primary text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-desktop text-2xl text-accent"></i>
+                <div>
+                    <a href="/index.html" class="text-xl font-bold hover:text-accent transition">Config.pro</a>
+                    <p class="text-xs text-gray-300">by Slouwen</p>
+                </div>
+            </div>
+            <nav class="flex space-x-6">
+                <a href="/index.html" class="hover:text-accent">← На главную</a>
+                <a href="register.html" class="text-gray-300 hover:text-accent">Нет аккаунта? Зарегистрироваться</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержание -->
+    <main class="flex-grow flex items-center justify-center py-12">
+        <div class="container mx-auto px-4 max-w-md">
+            <div class="bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+                
+                <!-- Заголовок -->
+                <div class="bg-gradient-to-r from-primary to-blue-700 p-8 text-center">
+                    <i class="fas fa-sign-in-alt text-5xl mb-4"></i>
+                    <h1 class="text-3xl font-bold">Вход в систему</h1>
+                    <p class="text-gray-200 mt-2">Выберите роль для демо-доступа</p>
+                </div>
+                
+                <!-- Демо-доступы -->
+                <div class="p-6 space-y-4">
+                    <!-- Менеджер по продажам -->
+                    <a href="dashboard_sales.html" class="block bg-gray-700 hover:bg-gray-600 rounded-xl p-6 hover-lift transition">
+                        <div class="flex items-center">
+                            <div class="bg-blue-500 p-4 rounded-lg mr-4">
+                                <i class="fas fa-chart-line text-white text-2xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="text-xl font-bold">Менеджер по продажам</h3>
+                                <p class="text-gray-300 text-sm mt-1">Работа с агентами, заявками, скидками</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400 text-xl"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Мастер производства -->
+                    <a href="dashboard_production.html" class="block bg-gray-700 hover:bg-gray-600 rounded-xl p-6 hover-lift transition">
+                        <div class="flex items-center">
+                            <div class="bg-green-500 p-4 rounded-lg mr-4">
+                                <i class="fas fa-cogs text-white text-2xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="text-xl font-bold">Мастер производства</h3>
+                                <p class="text-gray-300 text-sm mt-1">Управление сборкой, контроль статусов</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400 text-xl"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Менеджер склада -->
+                    <a href="dashboard_warehouse.html" class="block bg-gray-700 hover:bg-gray-600 rounded-xl p-6 hover-lift transition">
+                        <div class="flex items-center">
+                            <div class="bg-orange-500 p-4 rounded-lg mr-4">
+                                <i class="fas fa-warehouse text-white text-2xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="text-xl font-bold">Менеджер склада</h3>
+                                <p class="text-gray-300 text-sm mt-1">Учёт комплектующих, инвентаризация</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-400 text-xl"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Разделитель -->
+                <div class="px-6">
+                    <div class="border-t border-gray-700"></div>
+                    <p class="text-center text-gray-400 text-sm py-4">Или войдите по учетным данным</p>
+                </div>
+                
+                <!-- Форма входа -->
+                <div class="p-6 pt-0">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none" placeholder="admin@config.pro">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">Пароль</label>
+                            <input type="password" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-accent focus:outline-none" placeholder="••••••••">
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="remember" class="mr-2">
+                                <label for="remember" class="text-sm text-gray-300">Запомнить меня</label>
+                            </div>
+                            <a href="#" class="text-sm text-accent hover:text-green-400">Забыли пароль?</a>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent hover:bg-green-500 text-white py-3 rounded-lg font-bold hover-lift mt-4">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Войти
+                        </button>
+                    </form>
+                    
+                    <!-- Ссылка на регистрацию -->
+                    <div class="text-center pt-6 border-t border-gray-700 mt-6">
+                        <p class="text-gray-400">Нет аккаунта?</p>
+                        <a href="register.html" class="inline-block mt-2 text-accent hover:text-green-400 font-bold">
+                            <i class="fas fa-user-plus mr-2"></i>Зарегистрироваться
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Нижняя часть сайта -->
+    <footer class="bg-primary text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300 text-sm">
+                © 2025 Config.pro • Учебный проект • Страница входа
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

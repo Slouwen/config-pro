@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер склада | Config.pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .bg-primary { background-color: #2C3E50; }
+        .text-accent { color: #2ECC71; }
+        .bg-accent { background-color: #2ECC71; }
+        .hover-lift:hover { transform: translateY(-2px); transition: 0.3s; }
+        .sidebar { width: 280px; min-height: calc(100vh - 64px); }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <!-- Шапка -->
+    <header class="bg-primary text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-warehouse text-2xl text-accent"></i>
+                <div>
+                    <span class="text-xl font-bold">Менеджер склада</span>
+                    <p class="text-xs text-gray-300">Демо-режим • Config.pro</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-300">Сидорова М.В.</span>
+                <a href="/index.html" class="text-gray-300 hover:text-accent text-lg" title="На главную">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="login.html" class="bg-accent hover:bg-green-500 text-white px-4 py-2 rounded font-bold hover-lift">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Выйти
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержание -->
+    <div class="flex flex-grow">
+        <!-- Боковая панель -->
+        <aside class="sidebar bg-gray-800">
+            <nav class="p-6">
+                <h3 class="text-lg font-bold mb-6 text-gray-400">СКЛАДСКОЙ УЧЁТ</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="dashboard_warehouse.html" class="flex items-center p-3 bg-accent rounded-lg text-white">
+                            <i class="fas fa-boxes mr-3"></i>
+                            <span>Инвентарь</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                            <i class="fas fa-clipboard-list mr-3"></i>
+                            <span>Приход</span>
+                            <span class="ml-auto bg-blue-500 text-xs px-2 py-1 rounded-full">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                            <i class="fas fa-shipping-fast mr-3"></i>
+                            <span>Расход</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                            <i class="fas fa-chart-bar mr-3"></i>
+                            <span>Отчёты</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <h3 class="text-lg font-bold mt-10 mb-6 text-gray-400">КАТЕГОРИИ</h3>
+                <div class="space-y-2">
+                    <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                        <i class="fas fa-microchip text-blue-400 mr-2"></i>
+                        <span>Процессоры</span>
+                        <span class="ml-auto text-sm text-gray-400">142 шт</span>
+                    </a>
+                    <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                        <i class="fas fa-sd-card text-green-400 mr-2"></i>
+                        <span>Материнские платы</span>
+                        <span class="ml-auto text-sm text-gray-400">89 шт</span>
+                    </a>
+                    <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                        <i class="fas fa-gamepad text-purple-400 mr-2"></i>
+                        <span>Видеокарты</span>
+                        <span class="ml-auto text-sm text-gray-400">67 шт</span>
+                    </a>
+                    <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                        <i class="fas fa-memory text-yellow-400 mr-2"></i>
+                        <span>Оперативная память</span>
+                        <span class="ml-auto text-sm text-gray-400">324 шт</span>
+                    </a>
+                </div>
+                
+                <!-- Информация о демо-режиме -->
+                <div class="mt-12 p-4 bg-orange-900/30 rounded-lg border border-orange-700">
+                    <p class="text-sm text-orange-300">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Демо-режим складского учёта
+                    </p>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Основная область -->
+        <main class="flex-grow p-6">
+            <h1 class="text-2xl font-bold mb-6">Демо: Управление складом комплектующих</h1>
+            
+            <!-- Статистика склада -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                    <div class="flex items-center">
+                        <div class="bg-blue-500 p-3 rounded-lg mr-4">
+                            <i class="fas fa-boxes text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold">642</p>
+                            <p class="text-gray-400">Всего позиций</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                    <div class="flex items-center">
+                        <div class="bg-green-500 p-3 rounded-lg mr-4">
+                            <i class="fas fa-check-circle text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold">24.5M</p>
+                            <p class="text-gray-400">Общая стоимость</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                    <div class="flex items-center">
+                        <div class="bg-yellow-500 p-3 rounded-lg mr-4">
+                            <i class="fas fa-exclamation-triangle text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold">12</p>
+                            <p class="text-gray-400">Низкий запас</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                    <div class="flex items-center">
+                        <div class="bg-red-500 p-3 rounded-lg mr-4">
+                            <i class="fas fa-times-circle text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold">3</p>
+                            <p class="text-gray-400">Отсутствуют</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Текущие остатки -->
+            <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Критический запас</h2>
+                    <span class="text-sm text-gray-400">Требуется пополнение</span>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-700">
+                            <tr>
+                                <th class="p-3 text-left">Компонент</th>
+                                <th class="p-3 text-left">Категория</th>
+                                <th class="p-3 text-left">Остаток</th>
+                                <th class="p-3 text-left">Минимум</th>
+                                <th class="p-3 text-left">Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-3">Intel Core i9-14900K</td>
+                                <td class="p-3">Процессоры</td>
+                                <td class="p-3">8 шт</td>
+                                <td class="p-3">15 шт</td>
+                                <td class="p-3"><span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs">Низкий</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-3">RTX 4070 Ti</td>
+                                <td class="p-3">Видеокарты</td>
+                                <td class="p-3">5 шт</td>
+                                <td class="p-3">10 шт</td>
+                                <td class="p-3"><span class="bg-red-500 text-white px-2 py-1 rounded text-xs">Критический</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="p-3">ASUS ROG Z790</td>
+                                <td class="p-3">Материнские платы</td>
+                                <td class="p-3">7 шт</td>
+                                <td class="p-3">12 шт</td>
+                                <td class="p-3"><span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs">Низкий</span></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">DDR5 32GB 6000MHz</td>
+                                <td class="p-3">ОЗУ</td>
+                                <td class="p-3">22 шт</td>
+                                <td class="p-3">30 шт</td>
+                                <td class="p-3"><span class="bg-orange-500 text-white px-2 py-1 rounded text-xs">Внимание</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Быстрые действия -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h3 class="text-lg font-bold mb-4">Добавить приход</h3>
+                    <div class="space-y-3">
+                        <select class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg">
+                            <option>Выберите компонент</option>
+                            <option>Intel Core i9-14900K</option>
+                            <option>AMD Ryzen 9 7950X</option>
+                            <option>RTX 4070 Ti</option>
+                            <option>RTX 4080 Super</option>
+                        </select>
+                        <input type="number" placeholder="Количество" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg">
+                        <input type="text" placeholder="Поставщик" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg">
+                        <button class="w-full bg-accent hover:bg-green-500 text-white py-2 rounded-lg">
+                            Зарегистрировать приход
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Информация о демо -->
+                <div class="bg-orange-900/30 rounded-xl p-6 border border-orange-700">
+                    <h3 class="text-lg font-bold mb-3 flex items-center">
+                        <i class="fas fa-info-circle mr-2 text-orange-400"></i>
+                        Демо: Управление складом
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        Интерфейс менеджера склада для учёта комплектующих, 
+                        контроля остатков и управления запасами.
+                    </p>
+                    <div class="space-y-2">
+                        <a href="dashboard_sales.html" class="block text-orange-400 hover:text-orange-300">
+                            <i class="fas fa-arrow-right mr-2"></i>Демо менеджера по продажам
+                        </a>
+                        <a href="dashboard_production.html" class="block text-orange-400 hover:text-orange-300">
+                            <i class="fas fa-arrow-right mr-2"></i>Демо мастера производства
+                        </a>
+                        <a href="/index.html" class="block text-gray-400 hover:text-white">
+                            <i class="fas fa-home mr-2"></i>На главную
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Нижняя часть сайта -->
+    <footer class="bg-primary text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">
+                © 2025 Config.pro • Демо-режим • Менеджер склада
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
