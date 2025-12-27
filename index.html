@@ -7,80 +7,80 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col">
     <!-- Шапка с профилем и переключением темы -->
-    <header class="bg-gray-800 text-white py-4 shadow-lg sticky top-0 z-10">
+    <header class="bg-[#2C3E50] text-white py-4 shadow-lg sticky top-0 z-10">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <!-- Логотип и название -->
             <div class="flex items-center space-x-3">
-                <i class="fas fa-desktop text-2xl text-green-500"></i>
+                <i class="fas fa-desktop text-2xl text-[#2ECC71]"></i>
                 <div>
-                    <a href="index.html" class="text-xl font-bold hover:text-green-500 transition-colors">Config.pro</a>
-                    <p class="text-xs text-gray-400">by Slouwen</p>
+                    <a href="index.html" class="text-xl font-bold hover:text-[#2ECC71] transition-colors">Config.pro</a>
+                    <p class="text-xs text-gray-300">by Slouwen</p>
                 </div>
             </div>
             
             <!-- Основная навигация -->
             <nav class="flex flex-wrap items-center gap-4 md:gap-6">
-                <a href="index.html" class="hover:text-green-500 border-b-2 border-transparent hover:border-green-500 py-1 transition-colors">Главная</a>
-                <a href="#features" class="hover:text-green-500 border-b-2 border-transparent hover:border-green-500 py-1 transition-colors">Функции</a>
-                <a href="#process" class="hover:text-green-500 border-b-2 border-transparent hover:border-green-500 py-1 transition-colors">Процесс</a>
+                <a href="index.html" class="hover:text-[#2ECC71] border-b-2 border-transparent hover:border-[#2ECC71] py-1 transition-colors">Главная</a>
+                <a href="#features" class="hover:text-[#2ECC71] border-b-2 border-transparent hover:border-[#2ECC71] py-1 transition-colors">Функции</a>
+                <a href="#process" class="hover:text-[#2ECC71] border-b-2 border-transparent hover:border-[#2ECC71] py-1 transition-colors">Процесс</a>
                 
                 <!-- Переключение темы -->
-                <button onclick="toggleTheme()" 
+                <button id="darkModeToggle" 
                         class="p-2 rounded-full hover:bg-white/10 transition-colors"
                         aria-label="Переключить тему">
-                    <i id="theme-icon" class="fas fa-moon text-lg"></i>
+                    <i class="fas fa-moon text-lg"></i>
                 </button>
                 
-                <!-- Профиль пользователя (выпадающее меню) -->
+                <!-- Профиль пользователя -->
                 <div class="relative group">
-                    <button class="flex items-center space-x-2 hover:text-green-500 transition-colors p-2 -m-2">
-                        <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
+                    <button class="flex items-center space-x-2 hover:text-[#2ECC71] transition-colors p-2 -m-2">
+                        <div class="w-10 h-10 rounded-full bg-[#2ECC71] flex items-center justify-center">
                             <i class="fas fa-user text-white"></i>
                         </div>
                         <div class="text-left hidden md:block">
                             <p class="font-medium">Иванов А.П.</p>
-                            <p class="text-xs text-gray-400">Менеджер по продажам</p>
+                            <p class="text-xs text-gray-300">Менеджер по продажам</p>
                         </div>
-                        <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                        <i class="fas fa-chevron-down text-xs text-gray-300"></i>
                     </button>
                     
                     <!-- Выпадающее меню профиля -->
-                    <div class="absolute right-0 mt-2 hidden group-hover:block bg-gray-800 min-w-[240px] rounded-lg shadow-lg border border-gray-700 z-50">
-                        <div class="p-4 border-b border-gray-700">
+                    <div class="absolute right-0 mt-2 hidden group-hover:block bg-white text-[#251725] min-w-[240px] rounded-lg shadow-lg border border-gray-200 z-50">
+                        <div class="p-4 border-b border-gray-200">
                             <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                                <div class="w-12 h-12 rounded-full bg-[#2ECC71] flex items-center justify-center">
                                     <i class="fas fa-user text-white text-xl"></i>
                                 </div>
                                 <div>
                                     <p class="font-bold">Иванов Алексей Петрович</p>
-                                    <p class="text-sm text-gray-400">Менеджер по продажам</p>
-                                    <p class="text-xs text-gray-400 mt-1">ID: MP-245</p>
+                                    <p class="text-sm text-gray-600">Менеджер по продажам</p>
+                                    <p class="text-xs text-gray-600 mt-1">ID: MP-245</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="p-2 space-y-1">
-                            <a href="pages/dashboard_sales.html" class="flex items-center p-2 hover:bg-gray-700 rounded transition-colors">
-                                <i class="fas fa-tachometer-alt mr-3 text-green-500"></i>
+                            <a href="pages/dashboard_sales.html" class="flex items-center p-2 hover:bg-gray-100 rounded transition-colors">
+                                <i class="fas fa-tachometer-alt mr-3 text-[#2ECC71]"></i>
                                 <span>Личный кабинет</span>
                             </a>   
-                            <a href="pages/cart.html" class="flex items-center p-2 hover:bg-gray-700 rounded transition-colors">
-                                <i class="fas fa-shopping-cart mr-3 text-green-500"></i>
+                            <a href="pages/cart.html" class="flex items-center p-2 hover:bg-gray-100 rounded transition-colors">
+                                <i class="fas fa-shopping-cart mr-3 text-[#2ECC71]"></i>
                                 <span>Корзина сборок</span>
-                                <span class="ml-auto bg-orange-500 text-xs px-2 py-1 rounded-full">2</span>
+                                <span class="ml-auto bg-orange-500 text-xs px-2 py-1 rounded-full text-white">2</span>
                             </a>
-                            <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded transition-colors">
-                                <i class="fas fa-cog mr-3 text-gray-400"></i>
+                            <a href="#" class="flex items-center p-2 hover:bg-gray-100 rounded transition-colors">
+                                <i class="fas fa-cog mr-3 text-gray-500"></i>
                                 <span>Настройки</span>
                             </a>
-                            <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded transition-colors">
-                                <i class="fas fa-question-circle mr-3 text-blue-400"></i>
+                            <a href="#" class="flex items-center p-2 hover:bg-gray-100 rounded transition-colors">
+                                <i class="fas fa-question-circle mr-3 text-blue-500"></i>
                                 <span>Помощь</span>
                             </a>
-                            <div class="pt-2 mt-2 border-t border-gray-700">
-                                <a href="pages/login.html" class="flex items-center p-2 hover:bg-red-900/30 text-red-400 rounded transition-colors">
+                            <div class="pt-2 mt-2 border-t border-gray-200">
+                                <a href="pages/login.html" class="flex items-center p-2 hover:bg-red-100 text-red-600 rounded transition-colors">
                                     <i class="fas fa-sign-out-alt mr-3"></i>
                                     <span>Выйти из системы</span>
                                 </a>
@@ -90,7 +90,7 @@
                 </div>
                 
                 <!-- Кнопка входа -->
-                <a href="pages/login.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-bold transition-all hover:-translate-y-0.5">
+                <a href="pages/login.html" class="bg-[#2ECC71] hover:bg-green-600 text-white px-4 py-2 rounded font-bold transition-transform hover:-translate-y-0.5">
                     <i class="fas fa-sign-in-alt mr-2"></i>Вход в систему
                 </a>
             </nav>
@@ -102,7 +102,7 @@
         <div class="flex flex-col lg:flex-row items-center gap-8">
             <!-- Левая колонка - изображение сборки ПК -->
             <div class="w-full lg:w-1/2">
-                <div class="bg-gradient-to-br from-gray-800 to-blue-900 rounded-2xl p-8 h-96 flex items-center justify-center shadow-lg">
+                <div class="bg-gradient-to-br from-gray-900 to-blue-900 rounded-2xl p-8 h-96 flex items-center justify-center shadow-lg">
                     <div class="text-center text-white">
                         <i class="fas fa-desktop text-6xl mb-4 opacity-50"></i>
                         <p class="text-xl font-bold">Описание процессов сборки ПК</p>
@@ -118,38 +118,38 @@
             
             <!-- Правая колонка - текст и кнопка -->
             <div class="w-full lg:w-1/2">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight"> 
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-[#251725]"> 
                     Управление сборкой компьютеров
-                    <span class="text-green-500 block">на профессиональном уровне</span>
+                    <span class="text-[#2ECC71] block">на профессиональном уровне</span>
                 </h1>
-                <p class="text-lg text-gray-400 mb-8"> 
+                <p class="text-lg text-gray-600 mb-8"> 
                     Полная автоматизация процесса — от заявки агента до отгрузки готовой системы. 
                     Контроль производства, управление складом и аналитика в одной платформе.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="pages/login.html" 
-                       class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-all hover:-translate-y-0.5 shadow-lg">
+                       class="bg-[#2ECC71] hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-transform hover:-translate-y-0.5 shadow-lg">
                         <i class="fas fa-rocket mr-2"></i>Начать работу
                     </a>
                     <a href="#features" 
-                       class="bg-white border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-all hover:-translate-y-0.5">
+                       class="bg-white border-2 border-[#2C3E50] text-[#2C3E50] hover:bg-[#2C3E50] hover:text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-transform hover:-translate-y-0.5">
                         <i class="fas fa-play-circle mr-2"></i>Как это работает
                     </a>
                 </div>
                 
                 <!-- Статистика -->
-                <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-gray-700"> 
+                <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-gray-300"> 
                     <div class="text-center">
-                        <p class="text-3xl font-bold">3</p> 
-                        <p class="text-sm text-gray-400">ролевых интерфейса</p> 
+                        <p class="text-3xl font-bold text-[#251725]">3</p> 
+                        <p class="text-sm text-gray-600">ролевых интерфейса</p> 
                     </div>
                     <div class="text-center">
-                        <p class="text-3xl font-bold">24/7</p> 
-                        <p class="text-sm text-gray-400">отслеживание заказов</p> 
+                        <p class="text-3xl font-bold text-[#251725]">24/7</p> 
+                        <p class="text-sm text-gray-600">отслеживание заказов</p> 
                     </div>
                     <div class="text-center">
-                        <p class="text-3xl font-bold">99%</p> 
-                        <p class="text-sm text-gray-400">точность сборки</p> 
+                        <p class="text-3xl font-bold text-[#251725]">99%</p> 
+                        <p class="text-sm text-gray-600">точность сборки</p> 
                     </div>
                 </div>
             </div>
@@ -157,9 +157,9 @@
     </section>
 
     <!-- Секция "Как это работает" -->
-    <section id="process" class="bg-gray-800 py-16">
+    <section id="process" class="bg-[#E5CBE6] py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">Процесс работы</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-[#251725]">Процесс работы</h2>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Шаг 1 -->
@@ -172,12 +172,12 @@
                                 <p class="text-blue-600 text-sm mt-1">Конфигурация • Скидки • Подтверждение</p>
                             </div>
                         </div>
-                        <div class="absolute -top-3 -left-3 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        <div class="absolute -top-3 -left-3 bg-[#2ECC71] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
                             1
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Заявка от агента</h3>
-                    <p class="text-gray-400">Менеджер создаёт заявку на сборку с выбранной конфигурацией и расчётом скидки.</p>
+                    <h3 class="text-xl font-bold mb-3 text-[#251725]">Заявка от агента</h3>
+                    <p class="text-gray-700">Менеджер создаёт заявку на сборку с выбранной конфигурацией и расчётом скидки.</p>
                 </div>
                 
                 <!-- Шаг 2 -->
@@ -190,12 +190,12 @@
                                 <p class="text-green-600 text-sm mt-1">Компоненты • Тестирование • Контроль</p>
                             </div>
                         </div>
-                        <div class="absolute -top-3 -left-3 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        <div class="absolute -top-3 -left-3 bg-[#2ECC71] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
                             2
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Сборка и контроль</h3>
-                    <p class="text-gray-400">Мастер производства отслеживает выполнение и меняет статусы в реальном времени.</p>
+                    <h3 class="text-xl font-bold mb-3 text-[#251725]">Сборка и контроль</h3>
+                    <p class="text-gray-700">Мастер производства отслеживает выполнение и меняет статусы в реальном времени.</p>
                 </div>
                 
                 <!-- Шаг 3 -->
@@ -208,35 +208,35 @@
                                 <p class="text-orange-600 text-sm mt-1">Остатки • Инвентаризация • Запасы</p>
                             </div>
                         </div>
-                        <div class="absolute -top-3 -left-3 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        <div class="absolute -top-3 -left-3 bg-[#2ECC71] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
                             3
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Учёт комплектующих</h3>
-                    <p class="text-gray-400">Менеджер склада контролирует остатки и проводит инвентаризацию.</p>
+                    <h3 class="text-xl font-bold mb-3 text-[#251725]">Учёт комплектующих</h3>
+                    <p class="text-gray-700">Менеджер склада контролирует остатки и проводит инвентаризацию.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Секция функций -->
-    <section id="features" class="bg-gray-800 py-16"> 
+    <section id="features" class="bg-white py-16"> 
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">Ролевые интерфейсы</h2> 
+            <h2 class="text-3xl font-bold mb-12 text-center text-[#251725]">Ролевые интерфейсы</h2> 
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Менеджер по продажам -->
-                <div class="bg-gray-700 rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-1"> 
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition-transform hover:-translate-y-1"> 
                     <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
                         <i class="fas fa-chart-line text-3xl mb-4"></i>
                         <h3 class="text-xl font-bold">Менеджер по продажам</h3>
                     </div>
                     <div class="p-6">
-                        <ul class="space-y-3 mb-6"> 
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Работа с агентами</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Создание заявок</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Расчёт скидок</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Аналитика продаж</li>
+                        <ul class="space-y-3 mb-6 text-[#251725]"> 
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Работа с агентами</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Создание заявок</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Расчёт скидок</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Аналитика продаж</li>
                         </ul>
                         <a href="pages/dashboard_sales.html" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-lg font-bold transition-colors">
                             Демо-доступ →
@@ -245,17 +245,17 @@
                 </div>
                 
                 <!-- Мастер производства -->
-                <div class="bg-gray-700 rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-1"> 
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition-transform hover:-translate-y-1"> 
                     <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
                         <i class="fas fa-cogs text-3xl mb-4"></i>
                         <h3 class="text-xl font-bold">Мастер производства</h3>
                     </div>
                     <div class="p-6">
-                        <ul class="space-y-3 mb-6"> 
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>План сборки</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Контроль выполнения</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Изменение статусов</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Отслеживание готовности</li>
+                        <ul class="space-y-3 mb-6 text-[#251725]"> 
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>План сборки</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Контроль выполнения</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Изменение статусов</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Отслеживание готовности</li>
                         </ul>
                         <a href="pages/dashboard_production.html" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg font-bold transition-colors">
                             Демо-доступ →
@@ -264,17 +264,17 @@
                 </div>
                 
                 <!-- Менеджер склада -->
-                <div class="bg-gray-700 rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-1"> 
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition-transform hover:-translate-y-1"> 
                     <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6 text-white">
                         <i class="fas fa-warehouse text-3xl mb-4"></i>
                         <h3 class="text-xl font-bold">Менеджер склада</h3>
                     </div>
                     <div class="p-6">
-                        <ul class="space-y-3 mb-6"> 
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Учёт комплектующих</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Инвентаризация</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Контроль остатков</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Управление запасами</li>
+                        <ul class="space-y-3 mb-6 text-[#251725]"> 
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Учёт комплектующих</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Инвентаризация</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Контроль остатков</li>
+                            <li class="flex items-center"><i class="fas fa-check text-[#2ECC71] mr-2"></i>Управление запасами</li>
                         </ul>
                         <a href="pages/dashboard_warehouse.html" class="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center py-3 rounded-lg font-bold transition-colors">
                             Демо-доступ →
@@ -286,20 +286,20 @@
     </section>
 
     <!-- Кнопка действия -->
-    <section class="bg-gradient-to-r from-blue-900 to-gray-800 text-white py-16">
+    <section class="bg-gradient-to-r from-blue-800 to-[#2C3E50] text-white py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-6">Готовы автоматизировать ваше производство?</h2>
-            <p class="text-xl mb-10 max-w-2xl mx-auto opacity-90">
+            <p class="text-xl mb-10 max-w-2xl mx-auto text-white/90">
                 Config.pro — единая система управления сборкой компьютеров с полным контролем 
                 и прозрачностью на каждом этапе.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="pages/login.html" 
-                   class="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all hover:-translate-y-0.5 shadow-lg">
+                   class="bg-[#2ECC71] hover:bg-green-600 text-white px-10 py-4 rounded-xl font-bold text-lg transition-transform hover:-translate-y-0.5 shadow-lg">
                     <i class="fas fa-rocket mr-2"></i>Начать бесплатно
                 </a>
                 <a href="#process" 
-                   class="bg-white hover:bg-gray-100 text-gray-800 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:-translate-y-0.5">
+                   class="bg-white hover:bg-gray-100 text-[#2C3E50] px-10 py-4 rounded-xl font-bold text-lg transition-transform hover:-translate-y-0.5">
                     <i class="fas fa-play-circle mr-2"></i>Посмотреть процесс
                 </a>
             </div>
@@ -307,15 +307,15 @@
             <!-- Дополнительные преимущества -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-blue-700">
                 <div class="text-center">
-                    <i class="fas fa-shield-alt text-2xl text-green-500 mb-3"></i>
+                    <i class="fas fa-shield-alt text-2xl text-[#2ECC71] mb-3"></i>
                     <p class="font-medium">Безопасность данных</p>
                 </div>
                 <div class="text-center">
-                    <i class="fas fa-mobile-alt text-2xl text-green-500 mb-3"></i>
+                    <i class="fas fa-mobile-alt text-2xl text-[#2ECC71] mb-3"></i>
                     <p class="font-medium">Доступ с любого устройства</p>
                 </div>
                 <div class="text-center">
-                    <i class="fas fa-headset text-2xl text-green-500 mb-3"></i>
+                    <i class="fas fa-headset text-2xl text-[#2ECC71] mb-3"></i>
                     <p class="font-medium">Техническая поддержка</p>
                 </div>
             </div>
@@ -323,71 +323,277 @@
     </section>
 
     <!-- Нижняя часть сайта -->
-    <footer class="bg-gray-800 text-white py-10">
+    <footer class="bg-[#2C3E50] text-white py-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
                     <div class="flex items-center gap-3 mb-2">
-                        <i class="fas fa-desktop text-2xl text-green-500"></i>
+                        <i class="fas fa-desktop text-2xl text-[#2ECC71]"></i>
                         <div>
                             <p class="text-xl font-bold">Config.pro</p>
-                            <p class="text-sm text-gray-400">Система сборки компьютеров</p>
+                            <p class="text-sm text-gray-300">Система сборки компьютеров</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 text-sm">Учебный проект • Специальность 09.02.07</p>
+                    <p class="text-gray-300 text-sm">Учебный проект • Специальность 09.02.07</p>
                 </div>
                 
                 <div class="flex gap-6">
-                    <a href="https://github.com/Slouwen" target="_blank" class="text-gray-400 hover:text-green-500 text-xl transition-colors">
+                    <a href="https://github.com/Slouwen" target="_blank" class="text-gray-300 hover:text-[#2ECC71] text-xl transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-green-500 text-xl transition-colors">
+                    <a href="#" class="text-gray-300 hover:text-[#2ECC71] text-xl transition-colors">
                         <i class="fas fa-file-alt"></i>
                     </a>
-                    <a href="index.html" class="text-gray-400 hover:text-green-500 text-xl transition-colors">
+                    <a href="index.html" class="text-gray-300 hover:text-[#2ECC71] text-xl transition-colors">
                         <i class="fas fa-home"></i>
                     </a>
                 </div>
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-6 text-center">
-                <p class="text-gray-400 text-sm">
+                <p class="text-gray-300 text-sm">
                     © 2025 Разработка статического веб-интерфейса с применением принципов семантической разметки и адаптивного дизайна.
                 </p>
             </div>
         </div>
     </footer>
 
+    <!-- Theme Manager Script -->
     <script>
-        // Переключатель темы
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            
-            if (body.classList.contains('light-theme')) {
-                body.classList.remove('light-theme');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.add('light-theme');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'light');
-            }
-        }
+    // Объект для управления темой приложения
+    const ThemeManager = {
+        // Название ключа в localStorage для сохранения состояния тёмного режима
+        DARK_MODE_KEY: 'darkMode',
         
-        // При загрузке проверяем сохраненную тему
-        window.onload = function() {
-            const saved = localStorage.getItem('theme');
-            const icon = document.getElementById('theme-icon');
+        // Класс который добавляется к body при включении тёмного режима
+        DARK_MODE_CLASS: 'dark-mode',
+
+        //Инициализация менеджера темы
+        init() {
+            // Применение сохраненной
+            this.applyThemeFromStorage();
             
-            if (saved === 'light') {
-                document.body.classList.add('light-theme');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+            // Добавление стилей для тёмного режима в документ
+            this.injectDarkModeStyles();
+            
+            // Подключение обработчика для кнопки переключения темы
+            this.attachToggleButton();
+        },
+
+        // Применяет тёмный режим если он был сохранен в localStorage
+        applyThemeFromStorage() {
+            // Получаем состояние тёмного режима из localStorage
+            const isDarkMode = localStorage.getItem(this.DARK_MODE_KEY) === 'true';
+            
+            // Если тёмный режим был включен, добавляем класс к body
+            if (isDarkMode) {
+                document.body.classList.add(this.DARK_MODE_CLASS);
             }
-        };
+        },
+
+        // Добавление CSS стилей для тёмного режима в документ
+        injectDarkModeStyles() {
+            // Проверка не был ли уже добавлен стиль (чтобы избежать дублирования)
+            if (document.getElementById('theme-manager-styles')) {
+                return;
+            }
+
+            // Создание элемента style с уникальным ID
+            const styleElement = document.createElement('style');
+            styleElement.id = 'theme-manager-styles';
+            
+            // CSS стили для тёмного режима
+            styleElement.textContent = `
+                /* Основные стили для тёмного режима */
+                body.dark-mode {
+                    background-color: #1a1a1a;
+                    color: #e5e5e5;
+                }
+
+                body.dark-mode header {
+                    background-color: #0d0d0d;
+                }
+
+                body.dark-mode footer {
+                    background-color: #0d0d0d;
+                }
+
+                body.dark-mode .bg-white {
+                    background-color: #2a2a2a;
+                    color: #e5e5e5;
+                }
+
+                body.dark-mode .text-\\[\\#251725\\] {
+                    color: #e5e5e5;
+                }
+
+                body.dark-mode .shadow-lg {
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.8);
+                }
+
+                body.dark-mode section {
+                    background-color: #1a1a1a;
+                }
+
+                body.dark-mode h1, 
+                body.dark-mode h2, 
+                body.dark-mode h3,
+                body.dark-mode h4,
+                body.dark-mode h5,
+                body.dark-mode h6 {
+                    color: #e5e5e5;
+                }
+
+                body.dark-mode .bg-\\[\\#E5CBE6\\] {
+                    background-color: #3a3a3a;
+                    color: #e5e5e5;
+                }
+
+                body.dark-mode input, 
+                body.dark-mode textarea,
+                body.dark-mode select {
+                    background-color: #2a2a2a;
+                    color: #e5e5e5;
+                    border-color: #3a3a3a;
+                }
+
+                body.dark-mode option {
+                    background-color: #2a2a2a;
+                    color: #e5e5e5;
+                }
+
+                body.dark-mode .border-t-2 {
+                    border-color: #3a3a3a !important;
+                }
+
+                body.dark-mode .border-b-2 {
+                    border-color: #3a3a3a !important;
+                }
+
+                body.dark-mode .text-red-500 {
+                    color: #ff6b6b !important;
+                }
+
+                body.dark-mode .text-red-600 {
+                    color: #ff5252 !important;
+                }
+                
+                body.dark-mode .bg-gray-50 {
+                    background-color: #1a1a1a;
+                }
+                
+                body.dark-mode .text-gray-600 {
+                    color: #a0a0a0;
+                }
+                
+                body.dark-mode .text-gray-300 {
+                    color: #888888;
+                }
+                
+                body.dark-mode .text-gray-700 {
+                    color: #cccccc;
+                }
+                
+                body.dark-mode .border-gray-300 {
+                    border-color: #444444;
+                }
+                
+                body.dark-mode .bg-\\[\\#2C3E50\\] {
+                    background-color: #0d1a26;
+                }
+                
+                body.dark-mode .from-blue-800 {
+                    --tw-gradient-from: #1e3a8a;
+                }
+                
+                body.dark-mode .to-\\[\\#2C3E50\\] {
+                    --tw-gradient-to: #0d1a26;
+                }
+            `;
+            
+            // Добавление стилей в head документа
+            document.head.appendChild(styleElement);
+        },
+
+        // Подключение обработчика к кнопке переключения темы, поиск кнопки по ID и добавление event listener
+        attachToggleButton() {
+            // Получаем кнопку переключения темы из DOM
+            const toggleButton = document.getElementById('darkModeToggle');
+            
+            // Если кнопка найдена, добавление обработчика клика
+            if (toggleButton) {
+                toggleButton.addEventListener('click', () => this.toggleTheme());
+                
+                // Обновление иконки при загрузке страницы
+                this.updateToggleIcon();
+            }
+        },
+
+        // Переключение тёмного режима (включает если выключен и наоборот)
+        toggleTheme() {
+            // Переключение класса тёмного режима на body
+            document.body.classList.toggle(this.DARK_MODE_CLASS);
+            
+            // Проверка включен ли тёмный режим после переключения
+            const isDarkMode = document.body.classList.contains(this.DARK_MODE_CLASS);
+            
+            // Сохранение нового состояния в localStorage
+            localStorage.setItem(this.DARK_MODE_KEY, isDarkMode);
+            
+            // Обновление иконки кнопки
+            this.updateToggleIcon();
+        },
+
+        updateToggleIcon() {
+            // Получение кнопки переключения темы из DOM
+            const toggleButton = document.getElementById('darkModeToggle');
+            
+            // Если кнопка найдена
+            if (toggleButton) {
+                // Проверка включен ли тёмный режим
+                const isDarkMode = document.body.classList.contains(this.DARK_MODE_CLASS);
+                
+                // Устанавливаем иконку в зависимости от состояния
+                // Солнце для тёмного режима, луна для светлого
+                const icon = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                toggleButton.innerHTML = icon;
+            }
+        },
+
+        // Отключает тёмный режим (возвращает светлую тему)
+        disableDarkMode() {
+            // Удаляем класс тёмного режима
+            document.body.classList.remove(this.DARK_MODE_CLASS);
+            
+            // Сохраняем состояние в localStorage
+            localStorage.setItem(this.DARK_MODE_KEY, false);
+            
+            // Обновляем иконку кнопки
+            this.updateToggleIcon();
+        },
+
+        // Включает тёмный режим
+        enableDarkMode() {
+            // Добавляем класс тёмного режима
+            document.body.classList.add(this.DARK_MODE_CLASS);
+            
+            // Сохраняем состояние в localStorage
+            localStorage.setItem(this.DARK_MODE_KEY, true);
+            
+            // Обновляем иконку кнопки
+            this.updateToggleIcon();
+        },
+
+        // Проверяет включен ли тёмный режим @returns {boolean} true если тёмный режим включен, false иначе
+        isDarkModeEnabled() {
+            return document.body.classList.contains(this.DARK_MODE_CLASS);
+        }
+    };
+
+    // Инициализируем ThemeManager при загрузке DOM
+    document.addEventListener('DOMContentLoaded', () => {
+        ThemeManager.init();
+    });
     </script>
 </body>
 </html>
