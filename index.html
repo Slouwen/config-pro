@@ -95,8 +95,25 @@
             color: #4a5568 !important;
         }
         
-        .dropdown:hover .dropdown-content {
+        .dropdown:hover .dropdown-content,
+        .dropdown-content:hover {
             display: block;
+        }
+
+        .dropdown > button {
+            padding: 12px 16px !important;
+            margin: -12px -16px !important;
+            border-radius: 8px !important;
+        }
+
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: transparent;
         }
         
         /* Плавная смена темы */
@@ -205,7 +222,14 @@
                             <a href="pages/dashboard_sales.html" class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">
                                 <i class="fas fa-tachometer-alt mr-3 text-accent"></i>
                                 <span class="menu-text">Личный кабинет</span>
+                            </a>   
+
+                            <a href="pages/cart.html" class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">
+                                <i class="fas fa-shopping-cart mr-3 text-accent"></i>
+                                <span class="menu-text">Корзина сборок</span>
+                                <span class="ml-auto bg-orange-500 text-xs px-2 py-1 rounded-full text-white">2</span>
                             </a>
+
                             <a href="#" class="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition">
                                 <i class="fas fa-cog mr-3 text-gray-500"></i>
                                 <span class="menu-text">Настройки</span>
