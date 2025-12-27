@@ -6,32 +6,24 @@
     <title>Мастер производства | Config.pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        .bg-primary { background-color: #2C3E50; }
-        .text-accent { color: #2ECC71; }
-        .bg-accent { background-color: #2ECC71; }
-        .hover-lift:hover { transform: translateY(-2px); transition: 0.3s; }
-        .sidebar { width: 280px; min-height: calc(100vh - 64px); }
-    </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-
     <!-- Шапка -->
-    <header class="bg-primary text-white py-4 shadow-lg">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+    <header class="bg-gray-800 text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <i class="fas fa-cogs text-2xl text-accent"></i>
+                <i class="fas fa-cogs text-2xl text-green-500"></i>
                 <div>
                     <span class="text-xl font-bold">Мастер производства</span>
-                    <p class="text-xs text-gray-300">Демо-режим • Config.pro</p>
+                    <p class="text-xs text-gray-400">Демо-режим • Config.pro</p>
                 </div>
             </div>
             <div class="flex items-center space-x-4">
                 <span class="text-gray-300">Петров С.И.</span>
-                <a href="/index.html" class="text-gray-300 hover:text-accent text-lg" title="На главную">
+                <a href="/index.html" class="text-gray-300 hover:text-green-500 text-lg" title="На главную">
                     <i class="fas fa-home"></i>
                 </a>
-                <a href="login.html" class="bg-accent hover:bg-green-500 text-white px-4 py-2 rounded font-bold hover-lift">
+                <a href="login.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-bold transition-transform hover:-translate-y-0.5">
                     <i class="fas fa-sign-out-alt mr-2"></i>Выйти
                 </a>
             </div>
@@ -39,33 +31,33 @@
     </header>
 
     <!-- Основное содержание -->
-    <div class="flex flex-grow">
+    <div class="flex flex-col md:flex-row flex-grow">
         <!-- Боковая панель -->
-        <aside class="sidebar bg-gray-800">
+        <aside class="w-full md:w-72 bg-gray-800 min-h-[calc(100vh-64px)]">
             <nav class="p-6">
                 <h3 class="text-lg font-bold mb-6 text-gray-400">МЕНЮ ПРОИЗВОДСТВА</h3>
                 <ul class="space-y-2">
                     <li>
-                        <a href="dashboard_production.html" class="flex items-center p-3 bg-accent rounded-lg text-white">
+                        <a href="dashboard_production.html" class="flex items-center p-3 bg-green-500 rounded-lg text-white">
                             <i class="fas fa-tachometer-alt mr-3"></i>
                             <span>План сборки</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-tasks mr-3"></i>
                             <span>Текущие заказы</span>
                             <span class="ml-auto bg-green-500 text-xs px-2 py-1 rounded-full">8</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-clock mr-3"></i>
                             <span>График смен</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-clipboard-check mr-3"></i>
                             <span>Контроль качества</span>
                         </a>
@@ -99,12 +91,12 @@
         </aside>
 
         <!-- Основная область -->
-        <main class="flex-grow p-6">
+        <main class="flex-grow p-4 md:p-6">
             <h1 class="text-2xl font-bold mb-6">Демо: Управление производством</h1>
             
             <!-- Статистика производства -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-blue-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-desktop text-white text-xl"></i>
@@ -115,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-green-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-check-circle text-white text-xl"></i>
@@ -126,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-yellow-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-clock text-white text-xl"></i>
@@ -137,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-red-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-exclamation-triangle text-white text-xl"></i>
@@ -151,15 +143,15 @@
             </div>
             
             <!-- Текущие заказы в производстве -->
-            <div class="bg-gray-800 rounded-xl p-6 mb-6">
-                <div class="flex justify-between items-center mb-4">
+            <div class="bg-gray-800 rounded-xl p-4 md:p-6 mb-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
                     <h2 class="text-xl font-bold">Текущие заказы в цеху</h2>
                     <span class="text-sm text-gray-400">Смена 1 (08:00-16:00)</span>
                 </div>
                 
                 <div class="space-y-4">
                     <!-- Заказ 1 -->
-                    <div class="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-gray-700/50 rounded-lg gap-4">
                         <div class="flex items-center">
                             <div class="bg-blue-500 p-3 rounded-lg mr-4">
                                 <i class="fas fa-desktop text-white"></i>
@@ -172,14 +164,14 @@
                         <div>
                             <span class="bg-blue-500 text-white px-3 py-1 rounded text-sm">Этап: Сборка</span>
                         </div>
-                        <div class="text-right">
+                        <div class="text-left md:text-right">
                             <p class="text-sm text-gray-400">Бригада 3</p>
                             <p class="text-sm">Осталось: 2 ч</p>
                         </div>
                     </div>
                     
                     <!-- Заказ 2 -->
-                    <div class="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-gray-700/50 rounded-lg gap-4">
                         <div class="flex items-center">
                             <div class="bg-green-500 p-3 rounded-lg mr-4">
                                 <i class="fas fa-desktop text-white"></i>
@@ -192,14 +184,14 @@
                         <div>
                             <span class="bg-green-500 text-white px-3 py-1 rounded text-sm">Этап: Тестирование</span>
                         </div>
-                        <div class="text-right">
+                        <div class="text-left md:text-right">
                             <p class="text-sm text-gray-400">Бригада 2</p>
                             <p class="text-sm">Осталось: 1 ч</p>
                         </div>
                     </div>
                     
                     <!-- Заказ 3 -->
-                    <div class="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-gray-700/50 rounded-lg gap-4">
                         <div class="flex items-center">
                             <div class="bg-yellow-500 p-3 rounded-lg mr-4">
                                 <i class="fas fa-desktop text-white"></i>
@@ -212,7 +204,7 @@
                         <div>
                             <span class="bg-yellow-500 text-white px-3 py-1 rounded text-sm">Этап: Комплектация</span>
                         </div>
-                        <div class="text-right">
+                        <div class="text-left md:text-right">
                             <p class="text-sm text-gray-400">Бригада 1</p>
                             <p class="text-sm">Осталось: 3 ч</p>
                         </div>
@@ -221,24 +213,24 @@
             </div>
             
             <!-- Быстрые действия -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-gray-800 rounded-xl p-6">
                     <h3 class="text-lg font-bold mb-4">Изменить статус заказа</h3>
                     <div class="space-y-3">
-                        <select class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg">
+                        <select class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:border-green-500 focus:outline-none">
                             <option>Выберите заказ</option>
                             <option>#245 - ООО "ТехноПром"</option>
                             <option>#244 - ИП Смирнов</option>
                             <option>#243 - "Компьютерный мир"</option>
                         </select>
-                        <select class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg">
+                        <select class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:border-green-500 focus:outline-none">
                             <option>Выберите статус</option>
                             <option>В ожидании</option>
                             <option>В работе</option>
                             <option>На тестировании</option>
                             <option>Готово</option>
                         </select>
-                        <button class="w-full bg-accent hover:bg-green-500 text-white py-2 rounded-lg">
+                        <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition-colors">
                             Обновить статус
                         </button>
                     </div>
@@ -255,13 +247,13 @@
                         управления статусами заказов и распределения задач.
                     </p>
                     <div class="space-y-2">
-                        <a href="dashboard_sales.html" class="block text-green-400 hover:text-green-300">
+                        <a href="dashboard_sales.html" class="block text-green-400 hover:text-green-300 transition-colors">
                             <i class="fas fa-arrow-right mr-2"></i>Демо менеджера по продажам
                         </a>
-                        <a href="dashboard_warehouse.html" class="block text-green-400 hover:text-green-300">
+                        <a href="dashboard_warehouse.html" class="block text-green-400 hover:text-green-300 transition-colors">
                             <i class="fas fa-arrow-right mr-2"></i>Демо менеджера склада
                         </a>
-                        <a href="/index.html" class="block text-gray-400 hover:text-white">
+                        <a href="/index.html" class="block text-gray-400 hover:text-white transition-colors">
                             <i class="fas fa-home mr-2"></i>На главную
                         </a>
                     </div>
@@ -271,13 +263,12 @@
     </div>
 
     <!-- Нижняя часть сайта -->
-    <footer class="bg-primary text-white py-4">
+    <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm">
                 © 2025 Config.pro • Демо-режим • Мастер производства
             </p>
         </div>
     </footer>
-
 </body>
 </html>

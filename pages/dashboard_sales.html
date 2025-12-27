@@ -6,32 +6,24 @@
     <title>Менеджер по продажам | Config.pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        .bg-primary { background-color: #2C3E50; }
-        .text-accent { color: #2ECC71; }
-        .bg-accent { background-color: #2ECC71; }
-        .hover-lift:hover { transform: translateY(-2px); transition: 0.3s; }
-        .sidebar { width: 280px; min-height: calc(100vh - 64px); }
-    </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-
     <!-- Шапка -->
-    <header class="bg-primary text-white py-4 shadow-lg">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+    <header class="bg-gray-800 text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <i class="fas fa-chart-line text-2xl text-accent"></i>
+                <i class="fas fa-chart-line text-2xl text-green-500"></i>
                 <div>
                     <span class="text-xl font-bold">Менеджер по продажам</span>
-                    <p class="text-xs text-gray-300">Демо-режим • Config.pro</p>
+                    <p class="text-xs text-gray-400">Демо-режим • Config.pro</p>
                 </div>
             </div>
             <div class="flex items-center space-x-4">
                 <span class="text-gray-300">Иванов А.П.</span>
-                <a href="/index.html" class="text-gray-300 hover:text-accent text-lg" title="На главную">
+                <a href="/index.html" class="text-gray-300 hover:text-green-500 text-lg" title="На главную">
                     <i class="fas fa-home"></i>
                 </a>
-                <a href="login.html" class="bg-accent hover:bg-green-500 text-white px-4 py-2 rounded font-bold hover-lift">
+                <a href="login.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-bold transition-transform hover:-translate-y-0.5">
                     <i class="fas fa-sign-out-alt mr-2"></i>Выйти
                 </a>
             </div>
@@ -39,40 +31,40 @@
     </header>
 
     <!-- Основное содержание -->
-    <div class="flex flex-grow">
+    <div class="flex flex-col md:flex-row flex-grow">
         <!-- Боковая панель -->
-        <aside class="sidebar bg-gray-800">
+        <aside class="w-full md:w-72 bg-gray-800 min-h-[calc(100vh-64px)]">
             <nav class="p-6">
                 <h3 class="text-lg font-bold mb-6 text-gray-400">МЕНЮ</h3>
                 <ul class="space-y-2">
                     <li>
-                        <a href="dashboard_sales.html" class="flex items-center p-3 bg-accent rounded-lg text-white">
+                        <a href="dashboard_sales.html" class="flex items-center p-3 bg-green-500 rounded-lg text-white">
                             <i class="fas fa-tachometer-alt mr-3"></i>
                             <span>Панель управления</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-file-alt mr-3"></i>
                             <span>Заявки</span>
                             <span class="ml-auto bg-blue-500 text-xs px-2 py-1 rounded-full">12</span>
                         </a>
                     </li>
                     <li>
-                        <a href="cart.html" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="cart.html" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-shopping-cart mr-3"></i>
                             <span>Корзина сборок</span>
                             <span class="ml-auto bg-orange-500 text-xs px-2 py-1 rounded-full">2</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-users mr-3"></i>
                             <span>Агенты</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
+                        <a href="#" class="flex items-center p-3 hover:bg-gray-700 rounded-lg transition-colors">
                             <i class="fas fa-percentage mr-3"></i>
                             <span>Скидки</span>
                         </a>
@@ -81,10 +73,10 @@
                 
                 <h3 class="text-lg font-bold mt-10 mb-6 text-gray-400">БЫСТРЫЕ ДЕЙСТВИЯ</h3>
                 <div class="space-y-3">
-                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg text-center hover-lift">
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg text-center transition-transform hover:-translate-y-0.5">
                         <i class="fas fa-plus mr-2"></i>Новая заявка
                     </button>
-                    <button class="w-full bg-green-600 hover:bg-green-700 text-white p-3 rounded-lg text-center hover-lift">
+                    <button class="w-full bg-green-600 hover:bg-green-700 text-white p-3 rounded-lg text-center transition-transform hover:-translate-y-0.5">
                         <i class="fas fa-user-plus mr-2"></i>Добавить агента
                     </button>
                 </div>
@@ -100,12 +92,12 @@
         </aside>
 
         <!-- Основная область -->
-        <main class="flex-grow p-6">
+        <main class="flex-grow p-4 md:p-6">
             <h1 class="text-2xl font-bold mb-6">Демо: Панель управления менеджера по продажам</h1>
             
             <!-- Статистика -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-blue-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-file-alt text-white text-xl"></i>
@@ -116,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-green-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-check-circle text-white text-xl"></i>
@@ -127,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-orange-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-users text-white text-xl"></i>
@@ -138,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 hover-lift">
+                <div class="bg-gray-800 rounded-xl p-4 md:p-6 transition-transform hover:-translate-y-0.5">
                     <div class="flex items-center">
                         <div class="bg-purple-500 p-3 rounded-lg mr-4">
                             <i class="fas fa-ruble-sign text-white text-xl"></i>
@@ -152,10 +144,10 @@
             </div>
             
             <!-- Последние заявки -->
-            <div class="bg-gray-800 rounded-xl p-6 mb-6">
+            <div class="bg-gray-800 rounded-xl p-4 md:p-6 mb-6">
                 <h2 class="text-xl font-bold mb-4">Последние заявки</h2>
                 <div class="overflow-x-auto">
-                    <table class="w-full">
+                    <table class="w-full min-w-[640px]">
                         <thead class="bg-gray-700">
                             <tr>
                                 <th class="p-3 text-left">№</th>
@@ -198,11 +190,11 @@
                     Это демонстрационная версия интерфейса менеджера по продажам. 
                     Все функции доступны для просмотра, но данные не сохраняются.
                 </p>
-                <div class="mt-4 flex space-x-4">
-                    <a href="dashboard_production.html" class="text-blue-400 hover:text-blue-300">
+                <div class="mt-4 flex flex-col md:flex-row gap-4">
+                    <a href="dashboard_production.html" class="text-blue-400 hover:text-blue-300 transition-colors">
                         <i class="fas fa-arrow-right mr-1"></i>Посмотреть демо мастера производства
                     </a>
-                    <a href="dashboard_warehouse.html" class="text-blue-400 hover:text-blue-300">
+                    <a href="dashboard_warehouse.html" class="text-blue-400 hover:text-blue-300 transition-colors">
                         <i class="fas fa-arrow-right mr-1"></i>Посмотреть демо менеджера склада
                     </a>
                 </div>
@@ -211,13 +203,12 @@
     </div>
 
     <!-- Нижняя часть сайта -->
-    <footer class="bg-primary text-white py-4">
+    <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm">
                 © 2025 Config.pro • Демо-режим • Менеджер по продажам
             </p>
         </div>
     </footer>
-
 </body>
 </html>
